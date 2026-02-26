@@ -189,9 +189,9 @@ export default function App() {
     <div className={S.page}>
       <div className={S.card}>
         <p className={S.label + " mb-3"}>What this measures</p>
-        <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Cognitive flexibility</h2>
+        <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Cognitive flexibility, executive function, and processing speed</h2>
         <p className={S.sub + " mb-6"}>
-          The ability to quickly adapt when rules change. This reflects executive function and working memory capacity.
+          This test measures your ability to quickly adapt when rules change. It reflects your executive function and working memory capacity.
         </p>
 
         <div className="space-y-3 mb-6">
