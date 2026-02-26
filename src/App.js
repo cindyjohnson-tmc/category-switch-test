@@ -189,9 +189,9 @@ export default function App() {
     <div className={S.page}>
       <div className={S.card}>
         <p className={S.label + " mb-3"}>What this measures</p>
-        <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Cognitive flexibility, executive function, and processing speed</h2>
+        <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Switching cost</h2>
         <p className={S.sub + " mb-6"}>
-          This test measures how well you adapt when priorities shift unexpectedly. This skill impacts your daily life in important ways.
+          This test measures cognitive flexibility, executive function, and processing speed. It captures how well you adapt when priorities shift unexpectedly, a skill that impacts your daily life in important ways.
         </p>
 
         <div className="space-y-3 mb-6">
