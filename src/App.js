@@ -221,9 +221,12 @@ export default function App() {
         <p className={S.label + " mb-3"}>How it works</p>
         <h2 className="text-2xl font-bold text-white mb-6 leading-tight">Answer based on the rule</h2>
 
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6">
-          <p className="text-zinc-300 text-sm mb-4 text-center">
-            You'll see a <span className="text-white font-semibold">word</span> and a <span className="text-[#39ff6a] font-semibold">rule</span>. Click YES or NO.
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-5">
+          <p className="text-zinc-300 text-sm mb-4">
+            This test measures cognitive flexibility, executive function, and processing speed.
+          </p>
+          <p className="text-zinc-300 text-sm mb-4">
+            You will see a <span className="text-white font-semibold">word</span> and a <span className="text-[#39ff6a] font-semibold">rule</span>. Your task is to click YES or NO based on whether the word matches the rule.
           </p>
           <div className="space-y-3">
             <div className="text-center">
@@ -242,7 +245,7 @@ export default function App() {
         <div className="mb-6">
           <p className="text-yellow-400 font-semibold text-sm mb-2 text-center">⚡ The rule changes during the test</p>
           <p className="text-zinc-400 text-sm text-center">
-            Answer quickly and accurately. Adapt when the rule switches.
+            Answer as quickly and accurately as possible. The rule will switch multiple times throughout the test, so you need to adapt when it changes.
           </p>
         </div>
 
