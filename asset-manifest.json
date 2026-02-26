@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/category-switch-test/static/css/main.674aed72.css",
-    "main.js": "/category-switch-test/static/js/main.ac31cea2.js",
+    "main.js": "/category-switch-test/static/js/main.fd4529d0.js",
     "static/js/453.60142661.chunk.js": "/category-switch-test/static/js/453.60142661.chunk.js",
     "index.html": "/category-switch-test/index.html",
     "main.674aed72.css.map": "/category-switch-test/static/css/main.674aed72.css.map",
-    "main.ac31cea2.js.map": "/category-switch-test/static/js/main.ac31cea2.js.map",
+    "main.fd4529d0.js.map": "/category-switch-test/static/js/main.fd4529d0.js.map",
     "453.60142661.chunk.js.map": "/category-switch-test/static/js/453.60142661.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.674aed72.css",
-    "static/js/main.ac31cea2.js"
+    "static/js/main.fd4529d0.js"
   ]
 }
