@@ -191,20 +191,26 @@ export default function App() {
         <p className={S.label + " mb-3"}>What this measures</p>
         <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Cognitive flexibility, executive function, and processing speed</h2>
         <p className={S.sub + " mb-6"}>
-          This test measures your ability to quickly adapt when rules change. It reflects your executive function and working memory capacity.
+          This test measures how well you adapt when priorities shift unexpectedly. This skill impacts your daily life in important ways.
         </p>
 
         <div className="space-y-3 mb-6">
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
-            <p className="text-[#39ff6a] font-semibold text-sm mb-1">Switch Cost</p>
+            <p className="text-[#39ff6a] font-semibold text-sm mb-1">Managing Interruptions</p>
             <p className="text-zinc-400 text-xs leading-relaxed">
-              How much slower and less accurate you become when the rule changes. Lower switch costs indicate stronger cognitive flexibility.
+              Switching between tasks at work, juggling multiple conversations, or adjusting plans when something unexpected happens.
             </p>
           </div>
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
-            <p className="text-[#39ff6a] font-semibold text-sm mb-1">Research Backed</p>
+            <p className="text-[#39ff6a] font-semibold text-sm mb-1">Learning & Problem-Solving</p>
             <p className="text-zinc-400 text-xs leading-relaxed">
-              Schmitz & Krämer (2023): Higher switch costs correlate with lower working memory capacity.
+              Trying new approaches when the first one doesn't work, adapting strategies in real-time, and learning from mistakes quickly.
+            </p>
+          </div>
+          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+            <p className="text-[#39ff6a] font-semibold text-sm mb-1">Mental Health</p>
+            <p className="text-zinc-400 text-xs leading-relaxed">
+              Better cognitive flexibility is linked to lower anxiety and depression, and greater resilience when facing life changes.
             </p>
           </div>
         </div>
