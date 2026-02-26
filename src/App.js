@@ -44,6 +44,7 @@ function shuffleArray(array) {
 
 export default function App() {
   const [phase, setPhase] = useState("welcome");
+  const [isPractice, setIsPractice] = useState(false);
   const [ruleSequence, setRuleSequence] = useState([]);
   const [wordSequence, setWordSequence] = useState([]);
   const [trialIdx, setTrialIdx] = useState(0);
@@ -51,10 +52,23 @@ export default function App() {
   const [results, setResults] = useState([]);
   const [feedback, setFeedback] = useState(null);
 
-  // Generate trial sequence
+  // Start practice (3 trials, 1 switch)
+  function startPractice() {
+    setIsPractice(true);
+    const practiceWords = ["CAT", "TREE", "LAMP"];
+    const practiceRules = ["living", "living", "length"]; // Switch at trial 3
+    setRuleSequence(practiceRules);
+    setWordSequence(practiceWords);
+    setTrialIdx(0);
+    setResults([]);
+    setTrialStart(Date.now());
+    setPhase("testing");
+  }
+
+  // Start real test (30 trials)
   function startTest() {
-    const trials = [];
-    const shuffledWords = shuffleArray(WORDS).slice(0, 30); // 30 trials
+    setIsPractice(false);
+    const shuffledWords = shuffleArray(WORDS).slice(0, 30);
 
     // Generate rule sequence with switches
     const ruleTypes = ["living", "length"];
@@ -62,7 +76,6 @@ export default function App() {
     const rules = [currentRule];
 
     for (let i = 1; i < 30; i++) {
-      // Switch rule every 2-4 trials on average
       const shouldSwitch = Math.random() < 0.35;
       if (shouldSwitch) {
         currentRule = currentRule === "living" ? "length" : "living";
@@ -107,8 +120,12 @@ export default function App() {
         setTrialStart(Date.now());
         setFeedback(null);
       } else {
-        // Test complete
-        setPhase("results");
+        // Practice or test complete
+        if (isPractice) {
+          setPhase("practice-complete");
+        } else {
+          setPhase("results");
+        }
       }
     }, 500);
   }
@@ -162,20 +179,50 @@ export default function App() {
         <p className={S.sub + " mb-8 text-center"}>
           ~3 minutes
         </p>
-        <button onClick={() => setPhase("intro")} className={S.btnPrimary}>Next</button>
+        <button onClick={() => setPhase("what")} className={S.btnPrimary}>Next</button>
       </div>
     </div>
   );
 
-  // INTRO SCREEN
-  if (phase === "intro") return (
+  // WHAT IT MEASURES
+  if (phase === "what") return (
+    <div className={S.page}>
+      <div className={S.card}>
+        <p className={S.label + " mb-3"}>What this measures</p>
+        <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Cognitive flexibility</h2>
+        <p className={S.sub + " mb-6"}>
+          The ability to quickly adapt when rules change. This reflects executive function and working memory capacity.
+        </p>
+
+        <div className="space-y-3 mb-6">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+            <p className="text-[#39ff6a] font-semibold text-sm mb-1">Switch Cost</p>
+            <p className="text-zinc-400 text-xs leading-relaxed">
+              How much slower and less accurate you become when the rule changes. Lower switch costs indicate stronger cognitive flexibility.
+            </p>
+          </div>
+          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
+            <p className="text-[#39ff6a] font-semibold text-sm mb-1">Research Backed</p>
+            <p className="text-zinc-400 text-xs leading-relaxed">
+              Schmitz & Krämer (2023): Higher switch costs correlate with lower working memory capacity.
+            </p>
+          </div>
+        </div>
+
+        <button onClick={() => setPhase("how")} className={S.btnPrimary}>Next</button>
+      </div>
+    </div>
+  );
+
+  // HOW IT WORKS
+  if (phase === "how") return (
     <div className={S.page}>
       <div className={S.card}>
         <p className={S.label + " mb-3"}>How it works</p>
         <h2 className="text-2xl font-bold text-white mb-6 leading-tight">Answer based on the rule</h2>
 
         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6">
-          <p className="text-zinc-300 text-base mb-4 text-center">
+          <p className="text-zinc-300 text-sm mb-4 text-center">
             You'll see a <span className="text-white font-semibold">word</span> and a <span className="text-[#39ff6a] font-semibold">rule</span>. Click YES or NO.
           </p>
           <div className="space-y-3">
@@ -195,10 +242,38 @@ export default function App() {
         <div className="mb-6">
           <p className="text-yellow-400 font-semibold text-sm mb-2 text-center">⚡ The rule changes during the test</p>
           <p className="text-zinc-400 text-sm text-center">
-            We measure how much slower you get when switching between rules.
+            Answer quickly and accurately. Adapt when the rule switches.
           </p>
         </div>
 
+        <button onClick={() => setPhase("practice-intro")} className={S.btnPrimary}>Next</button>
+      </div>
+    </div>
+  );
+
+  // PRACTICE INTRO
+  if (phase === "practice-intro") return (
+    <div className={S.page}>
+      <div className={S.card}>
+        <p className={S.label + " mb-3"}>Before we begin</p>
+        <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Try 3 practice rounds</h2>
+        <p className={S.sub + " mb-8"}>
+          Get familiar with the format. The rule will change once during practice.
+        </p>
+        <button onClick={startPractice} className={S.btnPrimary}>Start Practice</button>
+      </div>
+    </div>
+  );
+
+  // PRACTICE COMPLETE
+  if (phase === "practice-complete") return (
+    <div className={S.page}>
+      <div className={S.card}>
+        <p className={S.label + " mb-3"}>Practice complete</p>
+        <h2 className="text-2xl font-bold text-white mb-4 leading-tight">Ready for the real test?</h2>
+        <p className={S.sub + " mb-8"}>
+          The test has 30 trials. Remember: speed and accuracy both matter.
+        </p>
         <button onClick={startTest} className={S.btnPrimary}>Start Test</button>
       </div>
     </div>
