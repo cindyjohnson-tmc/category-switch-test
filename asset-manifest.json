@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/category-switch-test/static/css/main.a04c0254.css",
+    "main.js": "/category-switch-test/static/js/main.1636bb4d.js",
+    "static/js/453.60142661.chunk.js": "/category-switch-test/static/js/453.60142661.chunk.js",
+    "index.html": "/category-switch-test/index.html",
+    "main.a04c0254.css.map": "/category-switch-test/static/css/main.a04c0254.css.map",
+    "main.1636bb4d.js.map": "/category-switch-test/static/js/main.1636bb4d.js.map",
+    "453.60142661.chunk.js.map": "/category-switch-test/static/js/453.60142661.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a04c0254.css",
+    "static/js/main.1636bb4d.js"
+  ]
+}
