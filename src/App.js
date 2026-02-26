@@ -170,26 +170,35 @@ export default function App() {
   // INTRO SCREEN
   if (phase === "intro") return (
     <div className={S.page}>
-      <div className={S.cardWide}>
+      <div className={S.card}>
         <p className={S.label + " mb-3"}>How it works</p>
-        <h2 className={S.h1 + " mb-4"}>Switch between rules</h2>
-        <p className={S.sub + " mb-6"}>
-          You'll see words and must quickly decide based on the rule shown. The rule changes throughout the test, measuring your "switch cost" — how much harder it is when the rule changes.
-        </p>
-        <div className="space-y-3 mb-6">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
-            <p className={S.label + " mb-2"}>Example Rules</p>
-            <div className="space-y-2 text-sm text-zinc-300">
-              <p>🌱 <span className="font-semibold">Is it living?</span> → CAT: Yes, CHAIR: No</p>
-              <p>📏 <span className="font-semibold">More than 5 letters?</span> → WINDOW: Yes, DESK: No</p>
+        <h2 className="text-2xl font-bold text-white mb-6 leading-tight">Answer based on the rule</h2>
+
+        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mb-6">
+          <p className="text-zinc-300 text-base mb-4 text-center">
+            You'll see a <span className="text-white font-semibold">word</span> and a <span className="text-[#39ff6a] font-semibold">rule</span>. Click YES or NO.
+          </p>
+          <div className="space-y-3">
+            <div className="text-center">
+              <p className="text-[#39ff6a] text-sm font-semibold mb-1">Is it living?</p>
+              <p className="text-white text-3xl font-bold mb-1">CAT</p>
+              <p className="text-zinc-500 text-xs">Answer: YES</p>
+            </div>
+            <div className="border-t border-zinc-700 pt-3 text-center">
+              <p className="text-[#39ff6a] text-sm font-semibold mb-1">More than 5 letters?</p>
+              <p className="text-white text-3xl font-bold mb-1">DESK</p>
+              <p className="text-zinc-500 text-xs">Answer: NO</p>
             </div>
           </div>
         </div>
-        <div className="space-y-2 mb-6">
-          <p className="text-zinc-400 text-sm">✓ Answer as quickly and accurately as possible</p>
-          <p className="text-zinc-400 text-sm">✓ The rule shown at the top tells you what to decide</p>
-          <p className="text-zinc-400 text-sm">✓ When the rule changes, adapt quickly!</p>
+
+        <div className="mb-6">
+          <p className="text-yellow-400 font-semibold text-sm mb-2 text-center">⚡ The rule changes during the test</p>
+          <p className="text-zinc-400 text-sm text-center">
+            We measure how much slower you get when switching between rules.
+          </p>
         </div>
+
         <button onClick={startTest} className={S.btnPrimary}>Start Test</button>
       </div>
     </div>
